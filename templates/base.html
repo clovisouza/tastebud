@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<link href="/stds_media/stds.css" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" href="/stds_media/favicon.gif" type="image/gif" />
+	<link rel="alternate" type="application/rss+xml" title="Tastebud Feed" href="http://feeds.feedburner.com/SameTitleDifferentStory" />
+    <title>{% block title %}Same Title Different Story{% endblock %}</title>
+</head>
+
+<body>
+    <div id="header_graphic">
+    	<a href="/">
+        	<img src="/images/tastebud_logo.png" style="width: 414px; height: 90px;">
+    	</a>
+    </div>
+    	
+	<div id="content">
+		{% block main %}
+		{% endblock %}
+	</div>
+	    	
+</body>
+</html>

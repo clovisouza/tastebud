@@ -1,0 +1,10 @@
+from django.http import HttpResponse
+from django.template import Context, loader
+from stds.blog.models import *
+from datetime import datetime as d
+
+def index(request):
+    t = loader.get_template('index.html')
+    c = Context({})
+    return HttpResponse(t.render(c))
+
