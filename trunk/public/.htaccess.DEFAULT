@@ -1,0 +1,13 @@
+# General Apache options
+AddHandler fastcgi-script .fcgi
+AddHandler cgi-script .cgi
+Options +FollowSymLinks +ExecCGI
+
+RewriteEngine On
+RewriteBase /
+RewriteRule ^(media/.*)$ - [L]
+RewriteRule ^(vot_media/.*)$ - [L]
+RewriteCond %{REQUEST_URI} !(django.fcgi)
+RewriteRule ^(.*)$ django.fcgi/$1 [L]
+
+ErrorDocument 500 "<h2>Application error</h2>Django application failed to start properly"

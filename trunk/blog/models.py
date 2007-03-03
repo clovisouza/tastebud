@@ -1,10 +1,40 @@
 from django.db import models
 
+class Author(models.Model):
+    """Authors are included fields in both articles and photos"""
+    name = models.CharField(maxlength=255,)
+    about = models.TextField(blank=True)
+    homepage = models.URLField(blank=True, null=True)
+    slug = models.SlugField(prepopulate_from=('name',))
+    
+    def has_articles(self):
+        """returns true if there are articles to their credit"""
+        if self.article_set.all().count() > 0:
+            return True
+        return False
+    
+    def has_photos(self):
+        """returns true if there are photos to their credit"""
+        if self.photo_set.all().count() > 0:
+            return True
+        return False
+    
+    def get_absolute_url(self):
+        """html link to authors page"""
+        return "<a href=\"/authors/%s\">%s</a>" % (self.slug, self.name)
+    
+    def __str__(self):
+        return self.name
+
+    class Admin:
+        pass
+        
 class Photo(models.Model):
     image = models.ImageField(upload_to='images/photos', height_field='height', width_field='width',)
     height = models.IntegerField(blank=True, null=True)
     width = models.IntegerField(blank=True, null=True)
     caption = models.TextField(blank=True, null=True)
+    credit = models.ManyToManyField(Author)
     
     def __str__(self):
         return "%s %s" % (self.caption, self.image)
@@ -35,6 +65,7 @@ class Podcast(models.Model):
         
 class BlogEntry(models.Model):
     title = models.CharField(maxlength=255)
+    authors = models.ManyToManyField(Author)
     date_added = models.DateField()
     body = models.TextField()
     photo = models.ForeignKey(Photo, blank=True, null=True)
