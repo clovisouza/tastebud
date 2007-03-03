@@ -4,6 +4,8 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 BASE_DIR = ''
 MODULE_NAME = 'tastebud'
+FEED_URL = ''
+SITE_NAME = 'A Tastebud Site'
 
 ADMINS = (
     # ('Your Name', 'your_email@domain.com'),

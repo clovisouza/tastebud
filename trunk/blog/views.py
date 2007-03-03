@@ -8,8 +8,12 @@ blog = __import__("%s.blog.models" % settings.MODULE_NAME,globals(),locals(),['m
 
 from datetime import datetime as d
 
+def standard_context():
+    c = Context({'site_name':app.settings.SITE_NAME,'feed_url':app.settings.FEED_URL})
+    return c
+    
 def index(request):
-    t = loader.get_template('index.html')
-    c = Context({})
+    t = loader.get_template("index.html")
+    c = standard_context()
     return HttpResponse(t.render(c))
 
