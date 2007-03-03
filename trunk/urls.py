@@ -1,10 +1,11 @@
 from django.conf.urls.defaults import *
-MODULE_NAME = 'tastebud'
+import settings
+blog = __import__("%s.blog.models" % settings.MODULE_NAME,globals(),locals(),['views'])
 
 urlpatterns = patterns('',
     # Example:
     # (r'^stds/', include('stds.foo.urls')),
-    (r'$^', '%s.blog.views.index' % MODULE_NAME),
+    (r'$^', 'blog.views.index'),
 
     # Uncomment this for admin:
     (r'^admin/', include('django.contrib.admin.urls')),
