@@ -9,6 +9,7 @@ blog = __import__("%s.blog.models" % settings.MODULE_NAME,globals(),locals(),['m
 from datetime import datetime as d
 
 def standard_context():
+    """ news up and returns a Context """
     c = Context({'site_name':app.settings.SITE_NAME,'feed_url':app.settings.FEED_URL})
     return c
     
