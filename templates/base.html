@@ -3,16 +3,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-	<link href="/stds_media/stds.css" rel="stylesheet" type="text/css">
-        <link rel="shortcut icon" href="/stds_media/favicon.gif" type="image/gif" />
-	<link rel="alternate" type="application/rss+xml" title="Tastebud Feed" href="http://feeds.feedburner.com/SameTitleDifferentStory" />
-    <title>{% block title %}Same Title Different Story{% endblock %}</title>
+	<link href="/media/style.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="/media/favicon.gif" type="image/gif" />
+	<link rel="alternate" type="application/rss+xml" title="{{site_name}} Feed" href="{{ feed_url }}" />
+    <title>{% block title %}{{ site_name }}{% endblock %}</title>
 </head>
 
 <body>
     <div id="header_graphic">
     	<a href="/">
-        	<img src="/images/tastebud_logo.png" style="width: 414px; height: 90px;">
+        	<img src="/media/logo.png">
     	</a>
     </div>
     	
