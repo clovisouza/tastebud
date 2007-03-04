@@ -5,7 +5,7 @@ blog = __import__("%s.blog.models" % settings.MODULE_NAME,globals(),locals(),['v
 urlpatterns = patterns('',
     # Example:
     # (r'^stds/', include('stds.foo.urls')),
-    (r'$^', 'blog.views.index'),
+    (r'$^', 'blog.views.blog_entries'),
 
     # Uncomment this for admin:
     (r'^admin/', include('django.contrib.admin.urls')),
