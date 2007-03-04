@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block main %}
+	<div id="entry_meta">All the articles we've ever written.</div>
+	{% if entries %}
+		<table>
+			<tr align="left">
+				<th>Date</th>
+				<th>Title</th>
+			</tr>
+			{% for entry in entries %}
+			<tr align="left" class="listline{%cycle 0,1%}">
+				<td>
+					{{entry.date_added}}
+				</td>
+				<td>
+					<a href="{{entry.get_absolute_url}}">{{entry.title}}</a>
+				</td>
+			</tr>
+			{% endfor %}
+		</table>
+	{% else %}
+		<p>No articles have been written.</p>
+	{% endif %}
+{% endblock %}
