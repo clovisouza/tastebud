@@ -13,9 +13,21 @@ def standard_context():
     c = Context({'site_name':app.settings.SITE_NAME,'feed_url':app.settings.FEED_URL})
     return c
     
-def blog_entries(request):
-    t = loader.get_template("blog.html")
+def blog_latest(request):
     c = standard_context()
-    c['entries'] = blog.BlogEntry.objects.all()
+    t = loader.get_template("blog.html")
+    c['entries'] = blog.BlogEntry.objects.all().filter(date_added__lte=d.now()).order_by('date_added')[0:9]
     return HttpResponse(t.render(c))
 
+def blog_archive(request):
+    c = standard_context()
+    t = loader.get_template("blog_archive.html")
+    c['entries'] = blog.BlogEntry.objects.all().filter(date_added__lte=d.now()).order_by('-date_added')
+    return HttpResponse(t.render(c))
+    
+def blog_entry(request, slug):
+    c = standard_context()
+    t = loader.get_template("blog.html")
+    c['entries'] = blog.BlogEntry.objects.filter(slug=slug)
+    c['title'] = c['entries'][0].title
+    return HttpResponse(t.render(c))

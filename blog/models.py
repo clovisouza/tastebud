@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.sites.models import Site
 
 class Author(models.Model):
     """Authors are included fields in both articles and photos"""
@@ -63,6 +64,21 @@ class Podcast(models.Model):
     class Admin:
         pass
         
+class Category(models.Model):
+    name = models.CharField(maxlength=255)
+    description = models.TextField(blank=True, null=True)
+    slug = models.SlugField(prepopulate_from=('name',))
+    
+    def get_absolute_url(self):
+        site = Site.objects.get_current().domain
+        return "http://%s/category/%s" % (site, self.slug)
+        
+    def __str__(self):
+        return self.name
+    
+    class Admin:
+        pass
+    
 class BlogEntry(models.Model):
     title = models.CharField(maxlength=255)
     authors = models.ManyToManyField(Author)
@@ -70,13 +86,15 @@ class BlogEntry(models.Model):
     body = models.TextField()
     photo = models.ForeignKey(Photo, blank=True, null=True)
     podcast = models.ForeignKey(Podcast, blank=True, null=True)
+    categories = models.ManyToManyField(Category)
     slug = models.SlugField(prepopulate_from=('title',))
     
     def __str__(self):
         return self.title
 
     def get_absolute_url(self):
-        return "http://tastebudchicago.com/blog/%s" % self.slug
+        site = Site.objects.get_current().domain
+        return "http://%s/blog/%s" % (site, self.slug)
 
     class Admin:
         pass
