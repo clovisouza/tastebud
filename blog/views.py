@@ -31,3 +31,11 @@ def blog_entry(request, slug):
     c['entries'] = blog.BlogEntry.objects.filter(slug=slug)
     c['title'] = c['entries'][0].title
     return HttpResponse(t.render(c))
+    
+def category_listing(request, slug):
+    c = standard_context()
+    t = loader.get_template("category.html")
+    c['category'] = blog.Category.objects.filter(slug=slug)[0]
+    c['entries'] = blog.BlogEntry.objects.filter(categories__slug__exact=slug)
+    c['title'] = c['category'].name
+    return HttpResponse(t.render(c))
