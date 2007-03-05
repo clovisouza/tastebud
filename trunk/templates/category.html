@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 {% block title %}
 {{title}}
@@ -6,10 +6,14 @@
 
 {% block main %}
 
+	<h1>{{ category.name }}</h1>
+	
+	<p>{{ category.description }}</p>
+
 	{% for entry in entries %}
 		<h1><a href="{{entry.get_absolute_url}}">{{entry.title}}</a></h1>
 		
-		{% for author in entry.authors.all %}
+		{% for author in entry.author_set.all %}
 		<div class="entry_author">{{ author }}</div>
 		{% endfor %}
 		
@@ -28,14 +32,6 @@
 				<p>{{entry.podcast}}</p>
 			{% endif %}
 		</div>
-		
-		<div class="entry_categories">
-			Filed under:
-			{% for category in entry.categories.all %}
-			{{ category.link }}
-			{% endfor %}
-		</div>
-		
 	{% endfor %}
 	
 	<div><a href="/blog_archive">...More Articles</a></div>

@@ -8,6 +8,7 @@ urlpatterns = patterns('',
     (r'^$', 'blog.views.blog_latest'),
     (r'^blog/(?P<slug>.*)/$', 'blog.views.blog_entry'),
     (r'^blog_archive/$', 'blog.views.blog_archive'),
+    (r'^category/(?P<slug>.*)/$', 'blog.views.category_listing'),
 
     # Uncomment this for admin:
     (r'^admin/', include('django.contrib.admin.urls')),

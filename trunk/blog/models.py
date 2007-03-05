@@ -75,6 +75,9 @@ class Category(models.Model):
         
     def __str__(self):
         return self.name
+        
+    def link(self):
+        return "<a href=\"%s\">%s</a>" % (self.get_absolute_url(), self.name)
     
     class Admin:
         pass
