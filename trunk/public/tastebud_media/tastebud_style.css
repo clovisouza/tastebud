@@ -1,0 +1,129 @@
+body { 
+	background: white;
+	font-family: "Lucida Grande", Verdana, "Bitstream Vera Sans", "Lucida Sans Unicode", sans-serif;
+	/* borrowed the above font scheme from the excellent http://b-list.org */
+	}
+
+#content table {
+    padding: 10px;
+    width: 60%;
+}	
+
+#content tr.listline0 {
+    background: white;
+}
+
+#content tr.listline1 {
+  background: #FFF;  
+}
+
+#content td {
+	padding-right: 2px;
+	padding-left: 2px;
+}
+
+#content th {
+    color: white;
+    background: black;
+    padding: 3px;
+    font-size: smaller;
+}
+
+a img {
+    border: 0 none;
+}
+
+#header {
+    position: relative;
+    top:0px;
+    left:0px;
+}
+#header #header_graphic {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    float:left;
+}
+
+#header #about {
+    color: grey;
+    position: relative;
+    float: right;
+    width:20%;
+    text-align:right;
+    top: 20px;
+    right: 2px;
+    font-size: 18px;
+}
+
+#header #about a { 
+	color: #000; 
+	text-decoration: none;
+    border-bottom: 1px dotted;
+}
+	
+#header #about a:hover { background-color:#FFFF00; }
+
+#content {
+	position: relative;
+	float: left;
+	padding-top: 2px;
+	padding-bottom: 100%;
+	padding-right: 12px;
+	padding-left: 12px;
+	background: white;
+	border-top: solid 10px;
+	font-size: 12px;
+}
+
+#content #page-about {
+    padding: 5px;
+    border: solid 1px;
+}
+
+#content a { 
+	color: #000; 
+	text-decoration: none;
+    border-bottom: 1px dotted;
+}
+	
+#content a:hover { background-color:#FFFF00; }
+
+#content .photo {
+    padding: 5px;
+}
+
+#content .photo p {
+    text-style: italic;
+    font-size: 11px;
+    padding-left: 5px;
+}
+
+#content .photo img {
+    padding: 3px;
+    border: solid 1px;
+}
+
+#content h1 {
+	border-bottom: 1px solid;
+}
+
+#content .entry_body {
+	padding-left: 5px;
+	padding-right: 10px;
+	padding-bottom: 7px;
+}
+
+#content .entry_date {
+	font-size: 11px;
+	margin: 3px;
+}
+
+#content .entry_body p {
+    padding-left: 3px;
+}
+
+div.entry_photo img {
+	padding-top: 5px;
+	border: 1px solid;
+}
