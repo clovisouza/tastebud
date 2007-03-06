@@ -15,6 +15,7 @@ urlpatterns = patterns('',
     (r'^admin/', include('django.contrib.admin.urls')),
     
     # For development only
-    (r'^testbud_media/(.*)$', 'django.views.static.serve', {'document_root': '/Users/cmcavoy/projects/testbud/public/testbud_media'}),
+    (r'^tastebud_media/(.*)$', 'django.views.static.serve', {'document_root': '/Users/cmcavoy/projects/testbud/public/tastebud_media'}),
+    (r'^stds_media/(.*)$', 'django.views.static.serve', {'document_root': '/Users/cmcavoy/projects/testbud/public/stds_media'}),
     
 )
