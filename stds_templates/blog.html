@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load comments.comments %}
+
+{% block title %}
+{{title}}
+{% endblock %}
+
+{% block main %}
+
+	{% for entry in entries %}
+		<h1><a href="{{entry.get_absolute_url}}">{{entry.title}}</a></h1>
+		
+		{% for author in entry.authors.all %}
+		<div class="entry_author">{{ author }}</div>
+		{% endfor %}
+		
+		<div class="entry_date">Added {{entry.date_added}}</div>
+		
+		{% if entry.photo %}
+			<div class="photo">
+				{{entry.photo.show}}
+				<p class="caption">{{entry.photo.caption}}</p>
+			</div>
+		{% endif %}
+		
+		<div class="entry_body">
+			{{entry.body|linebreaks}}
+			{% if entry.podcast %}
+				<p>{{entry.podcast}}</p>
+			{% endif %}
+		</div>
+		
+		<div class="entry_categories">
+			Filed under:
+			{% for category in entry.categories.all %}
+			{{ category.link }}
+			{% endfor %}
+		</div>
+		
+	{% endfor %}
+	
+	<div><a href="/blog_archive">...More Articles</a></div>
+
+{% endblock %}

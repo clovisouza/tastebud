@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load comments.comments %}
+
+{% block main %}
+	{% if entries %}
+		<table>
+			<tr align="left">
+				<th>Date</th>
+				<th>Title</th>
+				<!--><th>Comment Count</th>-->
+			</tr>
+			{% for entry in entries %}
+			<tr align="left" class="listline{%cycle 0,1%}">
+				{% get_free_comment_count for blog.blogentry entry.id as comment_count %}
+				<td>
+					{{entry.date_added}}
+				</td>
+				<td>
+					<a href="{{entry.get_absolute_url}}">{{entry.title}}</a>
+				</td>
+				<!--><td>
+					{{ comment_count }}
+				</td>-->
+			</tr>
+			{% endfor %}
+		</table>
+	{% else %}
+		<p>No articles have been written.</p>
+	{% endif %}
+{% endblock %}
