@@ -1,5 +1,7 @@
 from django.http import HttpResponse
 from django.template import Context, loader
+from django.contrib.comments.models import FreeComment
+
 import settings
 app = __import__("%s" % settings.MODULE_NAME,globals(),locals(),['settings'])
 # app settings become app.settings.whatever

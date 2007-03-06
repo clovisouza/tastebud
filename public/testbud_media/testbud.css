@@ -1,6 +1,7 @@
 body { 
-	background: #95BA65;
-	font-family: "Trebuchet MS", Arial;
+	background: white;
+	font-family: "Lucida Grande", Verdana, "Bitstream Vera Sans", "Lucida Sans Unicode", sans-serif;
+	/* borrowed the above font scheme from the excellent http://b-list.org */
 	}
 
 #content table {
@@ -9,7 +10,7 @@ body {
 }	
 
 #content tr.listline0 {
-    background: #E4E4D7;
+    background: white;
 }
 
 #content tr.listline1 {
@@ -28,33 +29,40 @@ body {
     font-size: smaller;
 }
 
-#entry_meta table {
-    width: 98%;
-    margin: 2px;
-    border: dotted 1px;
-}
-
 a img {
     border: 0 none;
 }
 
-img {
-	behavior: url("/javascripts/pngbehavior.htc");
+#header {
+    position: relative;
+    top:0px;
+    left:0px;
 }
-
-#header_graphic {
+#header #header_graphic {
     position: relative;
     top: 0px;
     left: 0px;
+    float:left;
+}
+
+#header #about {
+    color: grey;
+    position: relative;
+    float: right;
+    width:20%;
+    text-align:right;
+    top: 20px;
+    right: 2px;
+    font-size: 18px;
+}
+
+#header #about a { 
+	color: #000; 
+	text-decoration: none;
+    border-bottom: 1px dotted;
 }
 	
-/*#line {
-	width: 100%;
-	position: relative;
-	top: 88px;
-	left: 0px;
-	background: url(/images/dot.gif) bottom repeat-x;
-}*/
+#header #about a:hover { background-color:#FFFF00; }
 
 #content {
 	position: relative;
@@ -63,9 +71,14 @@ img {
 	padding-bottom: 100%;
 	padding-right: 12px;
 	padding-left: 12px;
-	background: #BCE27F;
-	border-top: solid 2px;
-/*	background: #BCE27F url(/images/border-right.gif) right repeat-y;*/
+	background: white;
+	border-top: solid 10px;
+	font-size: 12px;
+}
+
+#content #page-about {
+    padding: 5px;
+    border: solid 1px;
 }
 
 #content a { 
@@ -99,7 +112,6 @@ img {
 	padding-left: 5px;
 	padding-right: 10px;
 	padding-bottom: 7px;
-	width: 70%;
 }
 
 #content .entry_date {
@@ -111,75 +123,7 @@ img {
     padding-left: 3px;
 }
 
-#entry_meta {
-	position: relative;
-	float: right;
-	top: 10px;
-	right: 5px;
-	background-color: #ffffff;
-	border: 1px solid;
-	padding: 5px;
-	width: 25%;
-	font-size: 12px;
-}
-
-#entry_meta h1 {
-	text-transform: capitalize;
-	font-size: 11px;
-	border-bottom: 1px solid;
-}
-
-	
-#entry_meta div.entry_rating {
-	border: 1px dotted;
-	padding: 5px;
-	/*width: 65%;*/
-}
-
-#entry_meta span.pull_quote {
-	font-size: x-large;
-}
-
-#mainmenu {
-	position: absolute;
-	padding: 10px;
-	color: #FFFFFF;
-	background: #000;
-	top: 0px;
-	right: 10px;
-	font-size: 15px;
-    border-style: solid;
-    border-color: #BCE27F;
-	text-transform: uppercase;
-}
-
-#mainmenu ul li {
-    display: inline;
-    list-style-type: none;
-}
-
-#mainmenu a { 
-    color: #FFF;
-	text-decoration: none;
-}
-	
-#mainmenu a:hover { 
-	color: yellow;
-}
-
 div.entry_photo img {
 	padding-top: 5px;
 	border: 1px solid;
 }
-
-/*#menu {
-	position: absolute;
-	top: 100px;
-	right: 0px;
-	padding-top: 2px;
-	padding-left: 10px;
-	padding-bottom: 100%;
-	width: 25%;
-	background: #ffffff;
-	border-left: 1px solid;
-}*/

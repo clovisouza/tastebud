@@ -3,19 +3,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-	<link href="/media/style.css" rel="stylesheet" type="text/css">
+	<link href="/testbud_media/testbud.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="/media/favicon.gif" type="image/gif" />
 	<link rel="alternate" type="application/rss+xml" title="{{site_name}} Feed" href="{{ feed_url }}" />
     <title>{% block title %}{{ site_name }}{% endblock %}</title>
 </head>
 
 <body>
-    <div id="header_graphic">
-    	<a href="/">
-        	<img src="/media/logo.png">
-    	</a>
+	<div id="header">
+	    <div id="header_graphic">
+	    	<a href="/">
+	        	<img src="/testbud_media/logo.jpg">
+	    	</a>
+	    </div>
+
+		<div id="about">
+			Chicago writers are given a title and asked to write a story.  We record them reading their stories.
+			It's a podcast.<br>
+			<a href="/" style="color: darkred;">Listen via iTunes</a>
+		</div>
     </div>
-    	
+	
 	<div id="content">
 		{% block main %}
 		{% endblock %}
