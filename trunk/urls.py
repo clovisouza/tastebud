@@ -9,7 +9,12 @@ urlpatterns = patterns('',
     (r'^blog/(?P<slug>.*)/$', 'blog.views.blog_entry'),
     (r'^blog_archive/$', 'blog.views.blog_archive'),
     (r'^category/(?P<slug>.*)/$', 'blog.views.category_listing'),
+    (r'^comments/', include('django.contrib.comments.urls.comments')),
 
     # Uncomment this for admin:
     (r'^admin/', include('django.contrib.admin.urls')),
+    
+    # For development only
+    (r'^testbud_media/(.*)$', 'django.views.static.serve', {'document_root': '/Users/cmcavoy/projects/testbud/public/testbud_media'}),
+    
 )

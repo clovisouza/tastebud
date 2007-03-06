@@ -6,9 +6,11 @@
 
 {% block main %}
 
-	<h1>{{ category.name }}</h1>
+<div id="page-about">
+	<h2>{{ category.name }}</h2>
 	
 	<p>{{ category.description }}</p>
+</div>
 
 	{% for entry in entries %}
 		<h1><a href="{{entry.get_absolute_url}}">{{entry.title}}</a></h1>
