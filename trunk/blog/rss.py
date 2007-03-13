@@ -4,7 +4,7 @@ blog = __import__("%s.blog.models" % settings.MODULE_NAME,globals(),locals(),['v
 from datetime import datetime as d
 
 class BlogFeed(Feed):
-    title = settings.SITE_TITLE
+    title = settings.SITE_NAME
     link = "/blog/"
     description = settings.SITE_DESCRIPTION
 
