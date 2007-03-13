@@ -6,6 +6,7 @@ BASE_DIR = ''
 MODULE_NAME = 'tastebud'
 FEED_URL = ''
 SITE_NAME = 'A Tastebud Site'
+SITE_DESCRIPTION = ''
 
 ADMINS = (
     # ('Your Name', 'your_email@domain.com'),
