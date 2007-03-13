@@ -1,8 +1,0 @@
-{% if obj.photo %}
-<p>{{ obj.photo.show }}</p>
-<p style="text-style: italic; font-size: 11px;">{{obj.photo.caption}}</p>
-{% endif %}
-{{ obj.body|linebreaks }}
-{% if entry.podcast %}
-	<p>{{entry.podcast.link}}</p>
-{% endif %}
