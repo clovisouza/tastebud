@@ -1,0 +1,5 @@
+{% if obj.photo %}
+<p><img src="http://tastebudchicago.com/{{obj.photo.get_image_url}}"></p>
+<p style="text-style: italic; font-size: 11px;">{{obj.photo.caption}}</p>
+{% endif %}
+{{ obj.body|linebreaks }}
