@@ -31,7 +31,7 @@ class Author(models.Model):
         pass
         
 class Photo(models.Model):
-    image = models.ImageField(upload_to='images/photos', height_field='height', width_field='width',)
+    image = models.ImageField(upload_to='images', height_field='height', width_field='width',)
     height = models.IntegerField(blank=True, null=True)
     width = models.IntegerField(blank=True, null=True)
     caption = models.TextField(blank=True, null=True)
@@ -40,13 +40,17 @@ class Photo(models.Model):
     def __str__(self):
         return "%s %s" % (self.caption, self.image)
         
+    def get_absolute_url(self):
+        site = Site.objects.get_current().domain
+        return "http://%s%s" % (site,self.get_image_url())
+        
     def show(self):
-        return "<img src=\"%s\" height=%i width=%i alt=\"%s\">" % (self.get_image_url(), self.height, self.width, self.caption)
+        return "<img src=\"%s\" height=%i width=%i alt=\"%s\">" % (self.get_absolute_url(), self.height, self.width, self.caption)
         
     class Admin:
         fields = (
             (None, {
-                'fields': ('image', 'caption')
+                'fields': ('image', 'caption', 'credit')
             }),
             )
     
@@ -57,7 +61,14 @@ class Podcast(models.Model):
     data = models.FileField(upload_to='podcasts')
     title = models.CharField(maxlength=255)
     description = models.TextField(blank=True, null=True)
+
+    def get_absolute_url(self):
+        site = Site.objects.get_current().domain
+        return "http://%s%s" % (site,self.get_data_url())
     
+    def link(self):
+        return "<a href=\"%s\">%s</a>" % (self.get_absolute_url(), self.title)
+
     def __str__(self):
         return self.title
     

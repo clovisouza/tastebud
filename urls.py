@@ -1,9 +1,11 @@
 from django.conf.urls.defaults import *
 import settings
-blog = __import__("%s.blog.models" % settings.MODULE_NAME,globals(),locals(),['views'])
+blog = __import__("%s.blog" % settings.MODULE_NAME,globals(),locals(),['views'])
+rss = __import__("%s.blog.rss" % settings.MODULE_NAME,globals(),locals(),['*'])
+
 
 feeds = {
-    'blog': BlogFeed,
+    'blog': rss.BlogFeed,
 }
 urlpatterns = patterns('',
     # Example:
@@ -21,5 +23,6 @@ urlpatterns = patterns('',
     # For development only
     (r'^tastebud_media/(.*)$', 'django.views.static.serve', {'document_root': '/Users/cmcavoy/projects/testbud/public/tastebud_media'}),
     (r'^stds_media/(.*)$', 'django.views.static.serve', {'document_root': '/Users/cmcavoy/projects/testbud/public/stds_media'}),
+    (r'^media_root/(.*)$', 'django.views.static.serve', {'document_root': '/Users/cmcavoy/projects/testbud/public/media_root'}),
     
 )
