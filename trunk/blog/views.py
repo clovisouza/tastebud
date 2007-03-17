@@ -2,6 +2,9 @@ from django.http import HttpResponse
 from django.template import Context, loader
 from django.contrib.comments.models import FreeComment
 
+# need to import the settings from the module...this sucks.  It means that
+# the top module needs to be in the import path.  This is confusing.
+import settings
 app = __import__("%s" % settings.MODULE_NAME,globals(),locals(),['settings'])
 # app settings become app.settings.whatever
 blog = __import__("%s.blog.models" % settings.MODULE_NAME,globals(),locals(),['*'])
