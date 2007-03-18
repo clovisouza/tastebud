@@ -42,7 +42,7 @@ class Photo(models.Model):
         
     def get_absolute_url(self):
         site = Site.objects.get_current().domain
-        return "http://%s%s" % (site,self.get_image_url())
+        return "http://%s/%s" % (site,self.get_image_url())
         
     def show(self):
         return "<img src=\"%s\" height=%i width=%i alt=\"%s\">" % (self.get_absolute_url(), self.height, self.width, self.caption)
