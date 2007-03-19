@@ -67,7 +67,7 @@ class Podcast(models.Model):
         return "http://%s/%s" % (site,self.get_data_url())
     
     def link(self):
-        return "<a href=\"%s\" type="audio/mpeg">%s</a>" % (self.get_absolute_url(), self.title)
+        return "<a href=\"%s\" type=\"audio/mpeg\">%s</a>" % (self.get_absolute_url(), self.title)
 
     def __str__(self):
         return self.title
