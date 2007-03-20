@@ -20,7 +20,7 @@ def standard_context():
 def blog_latest(request):
     c = standard_context()
     t = loader.get_template("blog.html")
-    c['entries'] = blog.BlogEntry.objects.all().filter(date_added__lte=d.now()).order_by('date_added')[0:9]
+    c['entries'] = blog.BlogEntry.objects.all().filter(date_added__lte=d.now()).order_by('-date_added')[0:9]
     return HttpResponse(t.render(c))
 
 def blog_archive(request):
