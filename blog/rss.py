@@ -5,7 +5,7 @@ from datetime import datetime as d
 
 class BlogFeed(Feed):
     title = settings.SITE_NAME
-    link = "/blog/"
+    link = "/"
     description = settings.SITE_DESCRIPTION
 
     def items(self):
