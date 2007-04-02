@@ -26,7 +26,13 @@
 		<div class="entry_body">
 			{{entry.body|linebreaks}}
 			{% if entry.podcast %}
-				<p>{{entry.podcast.link}}</p>
+				<p>
+					Listen to the podcast:
+					<embed src="/media_root/flash_mp3_player/mp3player.swf" width="300" height="20" bgcolor="#FFFFFF"
+					type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" 
+					flashvars="file={{ entry.podcast.get_absolute_url }}" />
+					<br>or <a href="{{entry.podcast.get_absolute_url}}">download it</a>.
+				</p>
 			{% endif %}
 		</div>
 		
