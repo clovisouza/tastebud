@@ -58,13 +58,13 @@ class Photo(models.Model):
         ordering = ['caption']
         
 class Podcast(models.Model):
-    data = models.FileField(upload_to='podcasts')
+    filename = models.CharField(maxlength=255)
     title = models.CharField(maxlength=255)
     description = models.TextField(blank=True, null=True)
 
     def get_absolute_url(self):
         site = Site.objects.get_current().domain
-        return "http://%s/%s" % (site,self.get_data_url())
+        return "http://%s/%s/%s" % (site,settings.PODCAST_BASE,self.filename)
     
     def link(self):
         return "<a href=\"%s\">%s</a>" % (self.get_absolute_url(), self.title)
