@@ -58,7 +58,7 @@ class Photo(models.Model):
         ordering = ['caption']
         
 class Podcast(models.Model):
-    filename = models.CharField(maxlength=255)
+    filename = models.FilePathField(path=settings.MEDIA_ROOT, recursive=True)
     title = models.CharField(maxlength=255)
     description = models.TextField(blank=True, null=True)
 
