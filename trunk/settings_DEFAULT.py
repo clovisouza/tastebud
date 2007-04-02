@@ -8,6 +8,8 @@ MODULE_NAME = 'tastebud'
 FEED_URL = ''
 SITE_NAME = 'A Tastebud Site'
 SITE_DESCRIPTION = ''
+# base url for podcasts
+PODCAST_BASE = ''
 
 ADMINS = (
     # ('Your Name', 'your_email@domain.com'),
