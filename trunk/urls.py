@@ -24,5 +24,7 @@ urlpatterns = patterns('',
     (r'^tastebud_media/(.*)$', 'django.views.static.serve', {'document_root': '/Users/cmcavoy/projects/testbud/public/tastebud_media'}),
     (r'^stds_media/(.*)$', 'django.views.static.serve', {'document_root': '/Users/cmcavoy/projects/testbud/public/stds_media'}),
     (r'^media_root/(.*)$', 'django.views.static.serve', {'document_root': '/Users/cmcavoy/projects/testbud/public/media_root'}),
+    (r'^images/(.*)$', 'django.views.static.serve', {'document_root': '/Users/cmcavoy/projects/testbud/public/media_root/images'}),
+    
     
 )
