@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.sites.models import Site
+import settings
 
 class Author(models.Model):
     """Authors are included fields in both articles and photos"""
