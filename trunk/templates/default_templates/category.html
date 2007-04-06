@@ -17,7 +17,7 @@
 		<tr align="left">
 			<th>Date</th>
 			<th>Title</th>
-			<!--><th>Comment Count</th>-->
+			<th>Listen</th>
 		</tr>
 		{% for entry in entries %}
 		<tr align="left" class="listline{%cycle 0,1%}">
@@ -27,9 +27,13 @@
 			<td>
 				<a href="{{entry.get_absolute_url}}">{{entry.title}}</a>
 			</td>
-			<!--><td>
-				{{ comment_count }}
-			</td>-->
+			<td>
+				{% if entry.podcast %}
+				<embed src="/media_root/flash_mp3_player/mp3player.swf" width="18" height="20" bgcolor="#FFFFFF"
+				type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" 
+				flashvars="file={{ entry.podcast.get_absolute_url }}" />
+				{% endif %}
+			</td>
 		</tr>
 		{% endfor %}
 	</table>
