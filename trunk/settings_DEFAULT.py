@@ -4,7 +4,7 @@ import os
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-MODULE_NAME = 'tastebud'
+MODULE_NAME = BASE_DIR.split('/')[-1]
 FEED_URL = ''
 SITE_NAME = 'A Tastebud Site'
 SITE_DESCRIPTION = ''
