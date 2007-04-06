@@ -76,7 +76,20 @@ a img {
 
 #content #page-about {
     padding: 5px;
-    border: solid 1px;
+    border-bottom: 1px dotted;
+}
+
+#content #page-about h2 {
+    border-bottom: 1px solid;
+}
+
+#content #page-about h2 div.category-name {
+    display: inline;
+    color: red;
+}
+
+#content #page-about p {
+    padding-left: 5px;
 }
 
 #content a { 

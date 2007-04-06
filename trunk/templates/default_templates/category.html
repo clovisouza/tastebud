@@ -7,35 +7,36 @@
 {% block main %}
 
 <div id="page-about">
-	<h2>{{ category.name }}</h2>
+	<h2>Articles tagged with <div class="category-name">{{ category.name }}</div></h2>
 	
 	<p>{{ category.description }}</p>
 </div>
 
-	{% for entry in entries %}
-		<h1><a href="{{entry.get_absolute_url}}">{{entry.title}}</a></h1>
-		
-		{% for author in entry.author_set.all %}
-		<div class="entry_author">{{ author }}</div>
+{% if entries %}
+	<table>
+		<tr align="left">
+			<th>Date</th>
+			<th>Title</th>
+			<!--><th>Comment Count</th>-->
+		</tr>
+		{% for entry in entries %}
+		<tr align="left" class="listline{%cycle 0,1%}">
+			<td>
+				{{entry.date_added}}
+			</td>
+			<td>
+				<a href="{{entry.get_absolute_url}}">{{entry.title}}</a>
+			</td>
+			<!--><td>
+				{{ comment_count }}
+			</td>-->
+		</tr>
 		{% endfor %}
-		
-		<div class="entry_date">Added {{entry.date_added}}</div>
-		
-		{% if entry.photo %}
-			<div class="photo">
-				{{entry.photo.show}}
-				<p class="caption">{{entry.photo.caption}}</p>
-			</div>
-		{% endif %}
-		
-		<div class="entry_body">
-			{{entry.body|linebreaks}}
-			{% if entry.podcast %}
-				<p>{{entry.podcast}}</p>
-			{% endif %}
-		</div>
-	{% endfor %}
+	</table>
+{% else %}
+	<p>No articles have been written.</p>
+{% endif %}
 	
-	<div><a href="/blog_archive">...More Articles</a></div>
+<div><a href="/blog_archive">...More Articles</a></div>
 
 {% endblock %}
