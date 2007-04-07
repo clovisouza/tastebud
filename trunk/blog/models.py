@@ -122,7 +122,7 @@ class Page(models.Model):
         return "<a href=\"%s\">%s</a>" % (self.get_absolute_url(), self.name)
         
     class Admin:
-        pass
+        list_filter = ('show_on_main_page',)
 
     def __str__(self):
         return self.title
