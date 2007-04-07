@@ -33,9 +33,14 @@ def page(request,slug,page=None):
     """Display a page by slug, also has the option of passing in a page already pulled from the database."""
     c = standard_context()
     t = loader.get_template("page.html")
-    c['page'] = blog.Page.objects.all().filter(slug=slug)[0]
-    c['title'] = c['page'].title
-    return HttpResponse(t.render(c))
+    if page:
+        c['title'] = page.title
+        c['page'] = page
+        return HttpResponce(t.render(c))
+    else:
+        c['page'] = blog.Page.objects.all().filter(slug=slug)[0]
+        c['title'] = c['page'].title
+        return HttpResponse(t.render(c))
     
 def blog_latest(request):
     c = standard_context()
