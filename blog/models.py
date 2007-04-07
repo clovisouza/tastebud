@@ -30,6 +30,7 @@ class Author(models.Model):
 
     class Admin:
         pass
+    
         
 class Photo(models.Model):
     image = models.ImageField(upload_to='images', height_field='height', width_field='width',)
@@ -93,6 +94,38 @@ class Category(models.Model):
     
     class Admin:
         pass
+
+class Page(models.Model):
+    """A static page"""
+    title = models.CharField(blank=True, maxlength=255)
+    body = models.TextField(blank=True)
+    show_on_main_page = models.BooleanField(default=False)
+    slug = models.SlugField(prepopulate_from=("title",))
+    
+    def get_absolute_url(self):
+        site = Site.objects.get_current().domain
+        return "http://%s/pages/%s" % (site, self.slug)
+    
+    def save(self):
+        """If this is set to be the main page,
+        set any other objects that have the show_on_main_page 
+        flag set to False, so that this is the only
+        main page."""
+        if self.show_on_main_page:
+            for o in Page.objects.all().filter(show_on_main_page=True):
+                o.show_on_main_page = False
+                o.save()
+        super(Page, self).save()
+        
+        
+    def link(self):
+        return "<a href=\"%s\">%s</a>" % (self.get_absolute_url(), self.name)
+        
+    class Admin:
+        pass
+
+    def __str__(self):
+        return self.title
     
 class BlogEntry(models.Model):
     title = models.CharField(maxlength=255)
