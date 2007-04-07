@@ -5,5 +5,7 @@
 {% endblock %}
 
 {% block main %}
-{{ page.body }}
+<div class="page">
+{{ page.body|linebreaks }}
+</div>
 {% endblock %}

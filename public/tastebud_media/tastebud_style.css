@@ -91,7 +91,10 @@ a img {
     #content #page-about p {
         padding-left: 5px;
     }
-
+.page {
+    color: #111111;
+    font-size: 18px;
+}
 #content a { 
 	color: #000; 
 	text-decoration: none;
