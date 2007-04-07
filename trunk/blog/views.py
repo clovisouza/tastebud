@@ -1,6 +1,5 @@
 from django.http import HttpResponse
 from django.template import Context, loader
-from django.contrib.comments.models import FreeComment
 
 # need to import the settings from the module...this sucks.  It means that
 # the top module needs to be in the import path.  This is confusing.
@@ -14,8 +13,29 @@ from datetime import datetime as d
 
 def standard_context():
     """ news up and returns a Context """
-    c = Context({'site_name':app.settings.SITE_NAME,'feed_url':app.settings.FEED_URL})
+    c = Context({
+        'site_name' :settings.SITE_NAME,
+        'feed_url'  :settings.FEED_URL, 
+        'title'     :settings.SITE_NAME
+    })
     return c
+    
+def front_page(request):
+    """The index of the site.  If there's a static page with the slug of main, display that, otherwise
+    show the blog_latest view."""
+    try:
+        main_page = blog.Page.objects.get(show_on_main_page=True)
+        return page(request, main_page.slug, main_page)
+    except:
+        return blog_latest(request)
+    
+def page(request,slug,page=None):
+    """Display a page by slug, also has the option of passing in a page already pulled from the database."""
+    c = standard_context()
+    t = loader.get_template("page.html")
+    c['page'] = blog.Page.objects.all().filter(slug=slug)[0]
+    c['title'] = c['page'].title
+    return HttpResponse(t.render(c))
     
 def blog_latest(request):
     c = standard_context()
