@@ -36,7 +36,7 @@ def page(request,slug,page=None):
     if page:
         c['title'] = page.title
         c['page'] = page
-        return HttpResponce(t.render(c))
+        return HttpResponse(t.render(c))
     else:
         c['page'] = blog.Page.objects.all().filter(slug=slug)[0]
         c['title'] = c['page'].title
