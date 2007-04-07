@@ -130,7 +130,7 @@ class Page(models.Model):
 class BlogEntry(models.Model):
     title = models.CharField(maxlength=255)
     authors = models.ManyToManyField(Author)
-    date_added = models.DateField()
+    date_added = models.DateTimeField()
     body = models.TextField()
     photo = models.ForeignKey(Photo, blank=True, null=True)
     podcast = models.ForeignKey(Podcast, blank=True, null=True)
