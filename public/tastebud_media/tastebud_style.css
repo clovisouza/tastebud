@@ -138,6 +138,11 @@ a img {
     padding-left: 3px;
 }
 
+#content .entry_author {
+    display: inline;
+    color: blue;
+}
+
 div.entry_photo img {
 	padding-top: 5px;
 	border: 1px solid;
