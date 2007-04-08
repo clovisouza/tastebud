@@ -10,7 +10,7 @@
 		<h1><a href="{{entry.get_absolute_url}}">{{entry.title}}</a></h1>
 		
 		{% for author in entry.authors.all %}
-		<div class="entry_author">{{ author }}</div>
+		<div class="entry_author">{{ author }}&nbsp</div>
 		{% endfor %}
 		
 		<div class="entry_date">Added {{entry.date_added}}</div>
