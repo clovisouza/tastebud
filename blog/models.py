@@ -145,7 +145,7 @@ class BlogEntry(models.Model):
         return "http://%s/blog/%s" % (site, self.slug)
 
     class Admin:
-        list_display = ('title','authors','slug')
+        list_display = ('title','slug')
         
 
 
