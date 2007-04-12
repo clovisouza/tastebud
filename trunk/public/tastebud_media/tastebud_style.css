@@ -42,7 +42,6 @@ a img {
 	float: left;
 	width: 80%;
 	padding-top: 2px;
-	padding-bottom: 100%;
 	padding-right: 12px;
 	padding-left: 12px;
 	background: white;
@@ -142,6 +141,25 @@ a img {
     display: inline;
     color: blue;
 }
+
+#footer {
+    border-top: 1px solid;
+    width: 100%;
+    margin-top: 30px;
+    padding-top: 7px;
+    position: relative;
+    float: left;
+    font-size: 18px;
+    font-color: grey;
+}
+
+#footer a { 
+	color: grey; 
+	text-decoration: none;
+    border-bottom: 1px dotted;
+}
+	
+#footer a:hover { background-color:#FFFF00; }
 
 div.entry_photo img {
 	padding-top: 5px;
