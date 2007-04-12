@@ -75,7 +75,7 @@ class Podcast(models.Model):
         return self.title
     
     class Admin:
-        pass
+        list_display = ('title','filename')
         
 class Category(models.Model):
     name = models.CharField(maxlength=255)
@@ -145,7 +145,7 @@ class BlogEntry(models.Model):
         return "http://%s/blog/%s" % (site, self.slug)
 
     class Admin:
-        pass
+        list_display = ('title','authors','slug')
         
 
 
