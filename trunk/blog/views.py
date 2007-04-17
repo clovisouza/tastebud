@@ -65,6 +65,6 @@ def category_listing(request, slug):
     c = standard_context()
     t = loader.get_template("category.html")
     c['category'] = blog.Category.objects.filter(slug=slug)[0]
-    c['entries'] = blog.BlogEntry.objects.filter(categories__slug__exact=slug)
+    c['entries'] = blog.BlogEntry.objects.filter(categories__slug__exact=slug).order_by('date_added')
     c['title'] = c['category'].name
     return HttpResponse(t.render(c))
