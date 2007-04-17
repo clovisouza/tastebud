@@ -17,6 +17,7 @@
 		<tr align="left">
 			<th>Date</th>
 			<th>Title</th>
+			<th>Author</th>
 			<th>Listen</th>
 		</tr>
 		{% for entry in entries %}
@@ -26,6 +27,9 @@
 			</td>
 			<td>
 				<a href="{{entry.get_absolute_url}}">{{entry.title}}</a>
+			</td>
+			<td>
+				{{entry.pretty_author_list}}
 			</td>
 			<td>
 				{% if entry.podcast %}
