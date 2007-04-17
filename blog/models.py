@@ -14,7 +14,7 @@ class Author(models.Model):
         if self.article_set.all().count() > 0:
             return True
         return False
-    
+            
     def has_photos(self):
         """returns true if there are photos to their credit"""
         if self.photo_set.all().count() > 0:
@@ -139,6 +139,18 @@ class BlogEntry(models.Model):
     
     def __str__(self):
         return self.title
+        
+    def pretty_author_list(self):
+        """return a simple printed list of authors like 'Chris McAvoy, Camri McAvoy, Cotton McAvoy, Tulip McAvoy"""
+        try:
+            authors = list(self.authors.all())
+            r = authors[0].name
+            if len(authors) > 1:
+                for a in authors[1:]:
+                    r = "%s, %s" % (r,a.name)
+            return r
+        except:
+            return ""
 
     def get_absolute_url(self):
         site = Site.objects.get_current().domain
