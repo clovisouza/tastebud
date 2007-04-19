@@ -1,5 +1,5 @@
 from django.contrib.syndication.feeds import Feed
-import settings
+from django.conf import settings
 blog = __import__("%s.blog.models" % settings.MODULE_NAME,globals(),locals(),['views'])
 from datetime import datetime as d
 

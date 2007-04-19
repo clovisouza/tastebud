@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import *
-import settings
+from django.conf import settings
 blog = __import__("%s.blog" % settings.MODULE_NAME,globals(),locals(),['views'])
 rss = __import__("%s.blog.rss" % settings.MODULE_NAME,globals(),locals(),['*'])
 

@@ -3,9 +3,7 @@ from django.template import Context, loader
 
 # need to import the settings from the module...this sucks.  It means that
 # the top module needs to be in the import path.  This is confusing.
-import settings
-app = __import__("%s" % settings.MODULE_NAME,globals(),locals(),['settings'])
-# app settings become app.settings.whatever
+from django.conf import settings
 blog = __import__("%s.blog.models" % settings.MODULE_NAME,globals(),locals(),['*'])
 # blog models become blog.BlogEntry etc etc
 
